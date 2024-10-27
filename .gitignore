@@ -1,0 +1,6 @@
+/node_modules
+/.vscode
+/package-lock.json
+/package.json
+/tailwind.config.js
+/assets/css/input.css
