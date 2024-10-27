@@ -1,189 +1,117 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FLEANAB</title>
-    <link rel="stylesheet" href="./assets/css/main.css" />
-  </head>
-  <body>
-    <nav
-      class="fixed z-50 left-0 right-0 p-2 py-3 transition-all duration-500 ease-in-out flex justify-between items-center"
-    >
-      <div>
-        <h1>NavbarLogo</h1>
-      </div>
-      <div id="open--menu--button" class="flex justify-center items-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1.5em"
-          height="1.5em"
-          viewBox="0 0 24 24"
-          id="open--menu--icon"
-        >
-          <g
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="3"
-          >
-            <path d="M5 5L19 19M5 19L19 5">
-              <animate
-                fill="freeze"
-                attributeName="d"
-                dur="0.4s"
-                values="M5 5L19 19M5 19L19 5;M5 5L19 5M5 19L19 19"
-              />
-            </path>
-            <path d="M12 12H12" opacity="0">
-              <animate
-                fill="freeze"
-                attributeName="d"
-                begin="0.2s"
-                dur="0.4s"
-                values="M12 12H12;M5 12H19"
-              />
-              <set fill="freeze" attributeName="opacity" begin="0.2s" to="1" />
-            </path>
-          </g>
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="hidden"
-          width="1.5em"
-          height="1.5em"
-          viewBox="0 0 24 24"
-          id="close--menu--icon"
-        >
-          <g
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="3"
-          >
-            <path d="M5 12H19">
-              <animate
-                fill="freeze"
-                attributeName="d"
-                dur="0.4s"
-                values="M5 12H19;M12 12H12"
-              />
-              <set fill="freeze" attributeName="opacity" begin="0.4s" to="0" />
-            </path>
-            <path d="M5 5L19 5M5 19L19 19" opacity="0">
-              <animate
-                fill="freeze"
-                attributeName="d"
-                begin="0.2s"
-                dur="0.4s"
-                values="M5 5L19 5M5 19L19 19;M5 5L19 19M5 19L19 5"
-              />
-              <set fill="freeze" attributeName="opacity" begin="0.2s" to="1" />
-            </path>
-          </g>
-        </svg>
-      </div>
-    </nav>
-    <div
-      class="fixed w-full h-screen bg-[#729762] z-40 flex flex-col gap-y-3 items-center pt-20 p-8 hidden translate-y-[-250px] opacity-0"
-      id="navbar--menu--container"
-    >
-      <div class="border-b-2 border-white w-full pb-2 text-white">
-        <a href="/#home" class="nav-link">Home</a>
-      </div>
-      <div class="border-b-2 border-white w-full pb-2 text-white">
-        <a href="/#content" class="nav-link">Content</a>
-      </div>
-      <p
-        class="absolute bottom-5 left-0 right-0 text-center text-xs text-white"
-      >
-        RejectWind Copyright© 2024, made by us
-      </p>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FLEANAB</title>
+  <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
+  <link rel="stylesheet" href="./assets/css/main.css" />
+</head>
+
+<body>
+  <nav
+    class="fixed z-50 left-0 right-0 p-2 py-3 transition-all duration-500 ease-in-out flex justify-between items-center sm:justify-start sm:py-4 sm:gap-x-5">
+    <div>
+      <a href="/#home">
+        <img src="./assets/img/logo@500.png" class="w-[40px]">
+      </a>
     </div>
-    <main>
-      <section
-        class="h-screen relative pt-10 bg-[#E7F0DC] overflow-hidden"
-        id="home"
-      >
-        <div class="p-4 flex h-screen flex-col relative z-10 gap-y-5 top-[10%]">
-          <h1
-            class="text-[#597445] font-bold text-2xl relative leading-relaxed ml-2"
-            id="hero--text"
-          >
-            Transformasi Hidupmu dengan
-            <span class="bg-[#729762] p-1 px-2 rounded-sm text-white"
-              >FLEANAB</span
-            >: Dari Kebersihan ke Kesehatan!
-          </h1>
-          <h5 class="text-[#658147] ml-2">
-            Program FLEANAB Edukasi Kesehatan merupakan metode pembelajaran
-            tentang 7 keterampilan pola hidup bersih dan sehat. Edukasi ini akan
-            mengajarkan mitra untuk mampu memberdayakan diri agar tahu, mau dan
-            mampu melaksanakan perilaku hidup bersih dan sehat serta berperan
-            aktif dalam gerakan kesehatan di lingkungan Pondok Pesantren.
-          </h5>
-          <button
-            class="bg-[#365E32] p-2 rounded-md ml-2 w-36 text-[#E7D37F] font-semibold hover:bg-[#2c4a29] active:bg-[#233721]"
-            id="hero--button"
-          >
-            Mulai Sekarang
-          </button>
-        </div>
-        <div class="absolute right-0 bottom-0">
-          <img
-            src="./assets/img/hero_image@720p.png"
-            class="relative"
-            alt="Hero Image"
-            id="hero--image"
-          />
-        </div>
-      </section>
-      <section class="min-h-screen pt-28 overflow-hidden" id="content">
+    <div class="hidden sm:flex sm:gap-x-2 md:gap-x-4">
+      <a href="/#home" class="nav-link">Home</a>
+      <a href="/#content" class="nav-link">Content</a>
+    </div>
+    <div id="open--menu--button" class="flex justify-center items-center sm:hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24" id="open--menu--icon">
+        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+          <path d="M5 5L19 19M5 19L19 5">
+            <animate fill="freeze" attributeName="d" dur="0.4s" values="M5 5L19 19M5 19L19 5;M5 5L19 5M5 19L19 19" />
+          </path>
+          <path d="M12 12H12" opacity="0">
+            <animate fill="freeze" attributeName="d" begin="0.2s" dur="0.4s" values="M12 12H12;M5 12H19" />
+            <set fill="freeze" attributeName="opacity" begin="0.2s" to="1" />
+          </path>
+        </g>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" class="hidden" width="1.5em" height="1.5em" viewBox="0 0 24 24"
+        id="close--menu--icon">
+        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+          <path d="M5 12H19">
+            <animate fill="freeze" attributeName="d" dur="0.4s" values="M5 12H19;M12 12H12" />
+            <set fill="freeze" attributeName="opacity" begin="0.4s" to="0" />
+          </path>
+          <path d="M5 5L19 5M5 19L19 19" opacity="0">
+            <animate fill="freeze" attributeName="d" begin="0.2s" dur="0.4s"
+              values="M5 5L19 5M5 19L19 19;M5 5L19 19M5 19L19 5" />
+            <set fill="freeze" attributeName="opacity" begin="0.2s" to="1" />
+          </path>
+        </g>
+      </svg>
+    </div>
+  </nav>
+  <div
+    class="fixed w-full h-screen bg-[#729762] z-40 flex flex-col gap-y-3 items-center pt-20 p-8 hidden translate-y-[-250px] opacity-0 sm:hidden"
+    id="navbar--menu--container">
+    <div class="border-b-2 border-white w-full pb-2 text-white">
+      <a href="/#home" class="nav-link">Home</a>
+    </div>
+    <div class="border-b-2 border-white w-full pb-2 text-white">
+      <a href="/#content" class="nav-link">Content</a>
+    </div>
+    <p class="absolute bottom-5 left-0 right-0 text-center text-xs text-white">
+      RejectWind Copyright© 2024
+    </p>
+  </div>
+  <main>
+    <section class="h-screen relative  bg-[#E7F0DC] overflow-hidden lg:flex lg:justify-center lg:items-center"
+      id="home">
+      <div class="p-4 flex h-screen flex-col relative z-10 gap-y-5 top-[10%]">
+        <h1 class="text-[#597445] font-bold text-2xl relative leading-relaxed ml-2 sm:text-3xl" id="hero--text">
+          Transformasi Hidupmu dengan <span class="bg-[#729762] p-1 px-2 rounded-sm text-white">FLEANAB</span> : Dari Kebersihan ke Kesehatan!
+        </h1>
+        <h5 class="text-[#658147] ml-2 ">
+          Program FLEANAB Edukasi Kesehatan merupakan metode pembelajaran tentang 7 keterampilan pola hidup bersih dan sehat. Edukasi ini akan mengajarkan mitra untuk mampu memberdayakan diri agar tahu, mau dan mampu melaksanakan perilaku hidup bersih dan sehat serta berperan aktif dalam gerakan kesehatan di lingkungan Pondok Pesantren.
+        </h5>
+        <button class="bg-[#365E32] p-2 rounded-md ml-2 w-36 text-[#E7D37F] font-semibold hover:bg-[#2c4a29] active:bg-[#233721]" id="hero--button">
+          Mulai Sekarang
+        </button>
+      </div>
+      <div class="absolute right-0 bottom-0 lg:static lg:w-[150%] lg:flex lg:justify-center lg:items-center">
+        <img src="./assets/img/hero_image@720p.png" class="relative max-w-[180px] sm:right-0 sm:bottom-0 sm:max-w-[380px] lg:static"
+          alt="Hero Image" id="hero--image" />
+      </div>
+    </section>
+    <section class="min-h-screen pt-28 overflow-hidden" id="content">
+      <div class="ml-4 flex items-center gap-x-2 relative" id="heading--text--content--fleanab">
+        <h1 class="text-3xl font-bold bg-[#365E32] text-white px-2 rounded-md">
+          7
+        </h1>
+        <h1 class="text-xl font-bold text-[#729762] leading-6 sm:text-2xl">
+          Perilaku Hidup <br class="sm:hidden" />
+          Bersih dan Sehat
+        </h1>
+      </div>
+      <div
+        class="p-4 flex flex-col gap-y-5 sm:grid sm:grid-cols-2 sm:gap-x-3 sm:gap-y-4 sm:justify-items-center md:grid-cols-3 lg:grid-cols-4">
         <div
-          class="ml-4 flex items-center gap-x-2 relative"
-          id="heading--text--content--fleanab"
-        >
-          <h1
-            class="text-3xl font-bold bg-[#365E32] text-white px-2 py-1 rounded-md"
-          >
-            7
+          class="content-container relative flex flex-col gap-y-4 border-4 border-dashed overflow-hidden sm:justify-between"
+          id="content1--container">
+          <h1 class="absolute top-2 right-2 text-2xl bg-[#729762] text-white rounded-sm px-2 shadow-md">
+            1
           </h1>
-          <h1 class="text-xl font-bold text-[#729762] leading-6">
-            Perilaku Hidup <br />
-            Bersih dan Sehat
-          </h1>
-        </div>
-        <div class="p-4 flex flex-col gap-y-5">
-          <div
-            class="content-container relative flex flex-col gap-y-4 border-4 border-dashed overflow-hidden"
-            id="content1--container"
-          >
-            <h1
-              class="absolute top-2 right-2 text-2xl bg-[#729762] text-white rounded-sm px-2 shadow-md"
-            >
-              1
-            </h1>
-            <img src="./assets/img/content_1@720p.png" class="m-2" />
-            <div class="m-2 p-2 bg-[#E7F0DC] rounded-md flex flex-col gap-y-2">
-              <h3
-                class="content-header text-[#597445] rounded-md font-bold text-center text-xl opacity-0"
-              >
-                <span
-                  class="content-header-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden"
-                >
-                  <span class="content-header-texts"
-                    >Cuci Tangan Menggunakan Sabun</span
-                  >
+          <div class="sm:grid sm:grid-rows-3 sm:grid-cols-1 sm:h-full pb-4">
+            <div class="sm:row-span-1 sm:flex sm:justify-center sm:items-center">
+              <img src="./assets/img/content_1@720p.png" class="m-2" />
+            </div>
+            <div class="m-2 p-2 bg-[#E7F0DC] rounded-md flex flex-col gap-y-2 sm:h-full sm:row-span-2">
+              <h3 class="content-header text-[#597445] rounded-md font-bold text-center text-xl opacity-0">
+                <span class="content-header-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden">
+                  <span class="content-header-texts">Cuci Tangan Menggunakan Sabun</span>
                 </span>
               </h3>
-              <article
-                class="content-description text-justify text-[#658147] opacity-0"
-              >
+              <article class="content-description text-justify text-[#658147] opacity-0 h-full">
                 <span
-                  class="content-description-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden"
-                >
+                  class="content-description-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden">
                   <span class="content-description-texts">
                     Mencuci tangan dengan sabun adalah salah satu tindakan
                     sanitasi dengan membersihkan tangan dan jari jemari
@@ -201,32 +129,26 @@
               </article>
             </div>
           </div>
-          <div
-            class="content-container relative flex flex-col gap-y-4 border-4 border-dashed overflow-hidden"
-            id="content2--container"
-          >
-            <h1
-              class="absolute top-2 right-2 text-2xl bg-[#729762] text-white rounded-sm px-2 shadow-md"
-            >
-              2
-            </h1>
-            <img src="./assets/img/content_2@720p.png" class="m-2" />
-            <div class="m-2 p-2 bg-[#E7F0DC] rounded-md flex flex-col gap-y-2">
-              <h3
-                class="content-header text-[#597445] rounded-md font-bold text-center text-xl opacity-0"
-              >
-                <span
-                  class="content-header-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden"
-                >
+        </div>
+        <div
+          class="content-container relative flex flex-col gap-y-4 border-4 border-dashed overflow-hidden sm:justify-between"
+          id="content2--container">
+          <h1 class="absolute top-2 right-2 text-2xl bg-[#729762] text-white rounded-sm px-2 shadow-md">
+            2
+          </h1>
+          <div class="sm:grid sm:grid-rows-3 sm:grid-cols-1 sm:h-full pb-4">
+            <div class="sm:row-span-1 sm:flex sm:justify-center sm:items-center">
+              <img src="./assets/img/content_2@720p.png" class="m-2" />
+            </div>
+            <div class="m-2 p-2 bg-[#E7F0DC] rounded-md flex flex-col gap-y-2 sm:h-full sm:row-span-2">
+              <h3 class="content-header text-[#597445] rounded-md font-bold text-center text-xl opacity-0">
+                <span class="content-header-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden">
                   <span class="content-header-texts">Aktivitas Olahraga</span>
                 </span>
               </h3>
-              <article
-                class="content-description text-justify text-[#658147] opacity-0"
-              >
+              <article class="content-description text-justify text-[#658147] opacity-0 h-full">
                 <span
-                  class="content-description-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden"
-                >
+                  class="content-description-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden">
                   <span class="content-description-texts">
                     Aktifitas Olahraga adalah semua aktifitas yang menyebabkan
                     peningkatan atau pengeluaran tenaga yang penting bagi
@@ -244,32 +166,26 @@
               </article>
             </div>
           </div>
-          <div
-            class="content-container relative flex flex-col gap-y-4 border-4 border-dashed overflow-hidden"
-            id="content3--container"
-          >
-            <h1
-              class="absolute top-2 right-2 text-2xl bg-[#729762] text-white rounded-sm px-2 shadow-md"
-            >
-              3
-            </h1>
-            <img src="./assets/img/content_3@720p.png" class="m-2" />
-            <div class="m-2 p-2 bg-[#E7F0DC] rounded-md flex flex-col gap-y-2">
-              <h3
-                class="content-header text-[#597445] rounded-md font-bold text-center text-xl opacity-0"
-              >
-                <span
-                  class="content-header-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden"
-                >
+        </div>
+        <div
+          class="content-container relative flex flex-col gap-y-4 border-4 border-dashed overflow-hidden sm:justify-between"
+          id="content3--container">
+          <h1 class="absolute top-2 right-2 text-2xl bg-[#729762] text-white rounded-sm px-2 shadow-md">
+            3
+          </h1>
+          <div class="sm:grid sm:grid-rows-3 sm:grid-cols-1 sm:h-full pb-4">
+            <div class="sm:row-span-1 sm:flex sm:justify-center sm:items-center">
+              <img src="./assets/img/content_3@720p.png" class="m-2" />
+            </div>
+            <div class="m-2 p-2 bg-[#E7F0DC] rounded-md flex flex-col gap-y-2 sm:h-full sm:row-span-2">
+              <h3 class="content-header text-[#597445] rounded-md font-bold text-center text-xl opacity-0">
+                <span class="content-header-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden">
                   <span class="content-header-texts">Makan Buah dan Sayur</span>
                 </span>
               </h3>
-              <article
-                class="content-description text-justify text-[#658147] opacity-0"
-              >
+              <article class="content-description text-justify text-[#658147] opacity-0 h-full">
                 <span
-                  class="content-description-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden"
-                >
+                  class="content-description-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden">
                   <span class="content-description-texts">
                     Konsumsi sayur dan buah sangat penting dalam pola makan
                     seimbang. Hal ini disebabkan sayur dan buah mengandung
@@ -286,32 +202,26 @@
               </article>
             </div>
           </div>
-          <div
-            class="content-container relative flex flex-col gap-y-4 border-4 border-dashed overflow-hidden"
-            id="content4--container"
-          >
-            <h1
-              class="absolute top-2 right-2 text-2xl bg-[#729762] text-white rounded-sm px-2 shadow-md"
-            >
-              4
-            </h1>
-            <img src="./assets/img/content_4@720p.png" class="m-2" />
-            <div class="m-2 p-2 bg-[#E7F0DC] rounded-md flex flex-col gap-y-2">
-              <h3
-                class="content-header text-[#597445] rounded-md font-bold text-center text-xl opacity-0"
-              >
-                <span
-                  class="content-header-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden"
-                >
+        </div>
+        <div
+          class="content-container relative flex flex-col gap-y-4 border-4 border-dashed overflow-hidden sm:justify-between"
+          id="content4--container">
+          <h1 class="absolute top-2 right-2 text-2xl bg-[#729762] text-white rounded-sm px-2 shadow-md">
+            4
+          </h1>
+          <div class="sm:grid sm:grid-rows-3 sm:grid-cols-1 sm:h-full pb-4">
+            <div class="sm:row-span-1 sm:flex sm:justify-center sm:items-center">
+              <img src="./assets/img/content_4@720p.png" class="m-2" />
+            </div>
+            <div class="m-2 p-2 bg-[#E7F0DC] rounded-md flex flex-col gap-y-2 sm:h-full sm:row-span-2">
+              <h3 class="content-header text-[#597445] rounded-md font-bold text-center text-xl opacity-0">
+                <span class="content-header-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden">
                   <span class="content-header-texts">Tidak Merokok</span>
                 </span>
               </h3>
-              <article
-                class="content-description text-justify text-[#658147] opacity-0"
-              >
+              <article class="content-description text-justify text-[#658147] opacity-0 h-full">
                 <span
-                  class="content-description-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden"
-                >
+                  class="content-description-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden">
                   <span class="content-description-texts">
                     Merokok menjadi salah satu bentuk perilaku di masyarakat
                     yang sering ditemui di berbagai tempat. Merokok sendiri
@@ -326,34 +236,26 @@
               </article>
             </div>
           </div>
-          <div
-            class="content-container relative flex flex-col gap-y-4 border-4 border-dashed overflow-hidden"
-            id="content5--container"
-          >
-            <h1
-              class="absolute top-2 right-2 text-2xl bg-[#729762] text-white rounded-sm px-2 shadow-md"
-            >
-              5
-            </h1>
-            <img src="./assets/img/content_5@720p.png" class="m-2" />
-            <div class="m-2 p-2 bg-[#E7F0DC] rounded-md flex flex-col gap-y-2">
-              <h3
-                class="content-header text-[#597445] rounded-md font-bold text-center text-xl opacity-0"
-              >
-                <span
-                  class="content-header-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden"
-                >
-                  <span class="content-header-texts"
-                    >Menjaga Kebersihan Toilet</span
-                  >
+        </div>
+        <div
+          class="content-container relative flex flex-col gap-y-4 border-4 border-dashed overflow-hidden sm:justify-between"
+          id="content5--container">
+          <h1 class="absolute top-2 right-2 text-2xl bg-[#729762] text-white rounded-sm px-2 shadow-md">
+            5
+          </h1>
+          <div class="sm:grid sm:grid-rows-3 sm:grid-cols-1 sm:h-full pb-4">
+            <div class="sm:row-span-1 sm:flex sm:justify-center sm:items-center">
+              <img src="./assets/img/content_5@720p.png" class="m-2" />
+            </div>
+            <div class="m-2 p-2 bg-[#E7F0DC] rounded-md flex flex-col gap-y-2 sm:h-full sm:row-span-2">
+              <h3 class="content-header text-[#597445] rounded-md font-bold text-center text-xl opacity-0">
+                <span class="content-header-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden">
+                  <span class="content-header-texts">Menjaga Kebersihan Toilet</span>
                 </span>
               </h3>
-              <article
-                class="content-description text-justify text-[#658147] opacity-0"
-              >
+              <article class="content-description text-justify text-[#658147] opacity-0 h-full">
                 <span
-                  class="content-description-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden"
-                >
+                  class="content-description-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden">
                   <span class="content-description-texts">
                     Pentingnya penggunaan jamban sehat adalah untuk mencegah
                     penyebaran penyakit melalui air dan menjaga kebersihan
@@ -367,34 +269,26 @@
               </article>
             </div>
           </div>
-          <div
-            class="content-container relative flex flex-col gap-y-4 border-4 border-dashed overflow-hidden"
-            id="content6--container"
-          >
-            <h1
-              class="absolute top-2 right-2 text-2xl bg-[#729762] text-white rounded-sm px-2 shadow-md"
-            >
-              6
-            </h1>
-            <img src="./assets/img/content_6@720p.png" class="m-2" />
-            <div class="m-2 p-2 bg-[#E7F0DC] rounded-md flex flex-col gap-y-2">
-              <h3
-                class="content-header text-[#597445] rounded-md font-bold text-center text-xl opacity-0"
-              >
-                <span
-                  class="content-header-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden"
-                >
-                  <span class="content-header-texts"
-                    >Penggunaan Air Bersih</span
-                  >
+        </div>
+        <div
+          class="content-container relative flex flex-col gap-y-4 border-4 border-dashed overflow-hidden sm:justify-between"
+          id="content6--container">
+          <h1 class="absolute top-2 right-2 text-2xl bg-[#729762] text-white rounded-sm px-2 shadow-md">
+            6
+          </h1>
+          <div class="sm:grid sm:grid-rows-3 sm:grid-cols-1 sm:h-full pb-4">
+            <div class="sm:row-span-1 sm:flex sm:justify-center sm:items-center">
+              <img src="./assets/img/content_6@720p.png" class="m-2" />
+            </div>
+            <div class="m-2 p-2 bg-[#E7F0DC] rounded-md flex flex-col gap-y-2 sm:h-full sm:row-span-2">
+              <h3 class="content-header text-[#597445] rounded-md font-bold text-center text-xl opacity-0">
+                <span class="content-header-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden">
+                  <span class="content-header-texts">Penggunaan Air Bersih</span>
                 </span>
               </h3>
-              <article
-                class="content-description text-justify text-[#658147] opacity-0"
-              >
+              <article class="content-description text-justify text-[#658147] opacity-0 h-full">
                 <span
-                  class="content-description-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden"
-                >
+                  class="content-description-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden">
                   <span class="content-description-texts">
                     Air yang kita gunakan sehari-hari seperti minum, memasak,
                     mandi dan lainnya harus dalam keadaan bersih sehingga kita
@@ -410,49 +304,46 @@
               </article>
             </div>
           </div>
+        </div>
+        <div class="sm:col-span-2 sm:flex sm:justify-center md:col-span-1">
           <div
-            class="content-container relative flex flex-col gap-y-4 border-4 border-dashed overflow-hidden"
-            id="content7--container"
-          >
-            <h1
-              class="absolute top-2 right-2 text-2xl bg-[#729762] text-white rounded-sm px-2 shadow-md"
-            >
+            class="content-container relative flex flex-col gap-y-4 border-4 border-dashed overflow-hidden sm:w-1/2 sm:justify-between md:w-full"
+            id="content7--container">
+            <h1 class="absolute top-2 right-2 text-2xl bg-[#729762] text-white rounded-sm px-2 shadow-md">
               7
             </h1>
-            <img src="./assets/img/content_7@720p.png" class="m-2" />
-            <div class="m-2 p-2 bg-[#E7F0DC] rounded-md flex flex-col gap-y-2">
-              <h3
-                class="content-header text-[#597445] rounded-md font-bold text-center text-xl opacity-0"
-              >
-                <span
-                  class="content-header-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden"
-                >
-                  <span class="content-header-texts"
-                    >Pemberantasan Jentik Nyamuk</span
-                  >
-                </span>
-              </h3>
-              <article
-                class="content-description text-justify text-[#658147] opacity-0"
-              >
-                <span
-                  class="content-description-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden"
-                >
-                  <span class="content-description-texts">
-                    Pemberantasan Jentik Nyamuk adalah tindakan pencegahan untuk
-                    mengurangi populasi nyamuk dengan cara memberantas larva
-                    atau jentik nyamuk. Ini adalah salah satu langkah penting
-                    dalam pengendalian penyakit yang ditularkan oleh nyamuk,
-                    seperti demam berdarah, malaria, dan chikungunya.
+            <div class="sm:grid sm:grid-rows-3 sm:grid-cols-1 sm:h-full pb-4">
+              <div class="sm:row-span-1 sm:flex sm:justify-center sm:items-center">
+                <img src="./assets/img/content_7@720p.png" class="m-2" />
+              </div>
+              <div class="m-2 p-2 bg-[#E7F0DC] rounded-md flex flex-col gap-y-2 sm:h-full sm:row-span-2">
+                <h3 class="content-header text-[#597445] rounded-md font-bold text-center text-xl opacity-0">
+                  <span
+                    class="content-header-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden">
+                    <span class="content-header-texts">Pemberantasan Jentik Nyamuk</span>
                   </span>
-                </span>
-              </article>
+                </h3>
+                <article class="content-description text-justify text-[#658147] opacity-0 h-full">
+                  <span
+                    class="content-description-wrapper relative inline-block pt-[.2em] pr-[.05em] pb-[.1em] overflow-hidden">
+                    <span class="content-description-texts">
+                      Pemberantasan Jentik Nyamuk adalah tindakan pencegahan untuk
+                      mengurangi populasi nyamuk dengan cara memberantas larva
+                      atau jentik nyamuk. Ini adalah salah satu langkah penting
+                      dalam pengendalian penyakit yang ditularkan oleh nyamuk,
+                      seperti demam berdarah, malaria, dan chikungunya.
+                    </span>
+                  </span>
+                </article>
+              </div>
             </div>
           </div>
         </div>
-      </section>
-    </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-    <script src="./assets/js/main.js"></script>
-  </body>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script src="./assets/js/main.js"></script>
+</body>
+
 </html>

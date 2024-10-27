@@ -29,30 +29,35 @@ document.addEventListener('scroll', (e) => {
     
     hero_image.style.top = `${scrollY * .2}px`
     hero_text.style.left = `${scrollY * .4}px`
-    heading_text_content.style.left = scrollCalculate(.4, content_container.offsetTop - 100)
-    let offsetTop = content_container.offsetTop
-    content1_container.style.right = scrollCalculate(.2,  offsetTop)
-    offsetTop += content2_container.offsetHeight
-    content2_container.style.left = scrollCalculate(.2, offsetTop)
-    offsetTop += content3_container.offsetHeight
-    content3_container.style.right = scrollCalculate(.2, offsetTop)
-    offsetTop += content4_container.offsetHeight
-    content4_container.style.left = scrollCalculate(.2, offsetTop)
-    offsetTop += content5_container.offsetHeight
-    content5_container.style.right = scrollCalculate(.2, offsetTop)
-    offsetTop += content6_container.offsetHeight
-    content6_container.style.left = scrollCalculate(.2, offsetTop)
-    offsetTop += content7_container.offsetHeight
-    content7_container.style.right = scrollCalculate(.2, offsetTop)
+    if(screen.width <= 639){
+        heading_text_content.style.left = scrollCalculate(.4, content_container.offsetTop - 100)
+        let offsetTop = content_container.offsetTop
+        content1_container.style.right = scrollCalculate(.2,  offsetTop)
+        offsetTop += content2_container.offsetHeight
+        content2_container.style.left = scrollCalculate(.2, offsetTop)
+        offsetTop += content3_container.offsetHeight
+        content3_container.style.right = scrollCalculate(.2, offsetTop)
+        offsetTop += content4_container.offsetHeight
+        content4_container.style.left = scrollCalculate(.2, offsetTop)
+        offsetTop += content5_container.offsetHeight
+        content5_container.style.right = scrollCalculate(.2, offsetTop)
+        offsetTop += content6_container.offsetHeight
+        content6_container.style.left = scrollCalculate(.2, offsetTop)
+        offsetTop += content7_container.offsetHeight
+        content7_container.style.right = scrollCalculate(.2, offsetTop)
+    }
+    if(scrollY > 0){
+        navbar.classList.add('bg-[#729762]', 'text-white', 'shadow-md')
+    } else {
+        navbar.classList.remove('bg-[#729762]', 'text-white', 'shadow-md')
+    }
 
     if(scrollY >= content_container.offsetTop){
         hero_image.style.display = 'none'
         hero_text.style.display = 'none'
-        navbar.classList.add('bg-[#729762]', 'text-white', 'shadow-md')
     } else {
         hero_image.style.display = 'block'
         hero_text.style.display = 'block'
-        navbar.classList.remove('bg-[#729762]', 'text-white', 'shadow-md')
     }
 })
 
