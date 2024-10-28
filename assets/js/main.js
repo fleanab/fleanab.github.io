@@ -27,10 +27,14 @@ let scrollY = 0
 document.addEventListener('scroll', (e) => {
     scrollY = window.scrollY
     
-    hero_image.style.top = `${scrollY * .2}px`
+    if(screen.width >= 1024){
+        hero_image.style.transform = `translate(0,${scrollY * .3}px)`
+    } else {
+        hero_image.style.top = `${scrollY * .2}px`
+    }
     hero_text.style.left = `${scrollY * .4}px`
+    heading_text_content.style.left = scrollCalculate(.4, content_container.offsetTop - 100)
     if(screen.width <= 639){
-        heading_text_content.style.left = scrollCalculate(.4, content_container.offsetTop - 100)
         let offsetTop = content_container.offsetTop
         content1_container.style.right = scrollCalculate(.2,  offsetTop)
         offsetTop += content2_container.offsetHeight
@@ -86,16 +90,36 @@ const options = {
     threshold: 0,
     rootMargin: '150px 0px -150px 0px'
 }
-const observer_content = new IntersectionObserver((entries, observer) => {
+const observer_content = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if(entry.isIntersecting){
-            entry.target.querySelector('.content-header').style.opacity = 1
-            entry.target.querySelector('.content-description').style.opacity = 1
-            headingShowing(entry.target.querySelector('.content-header-texts'))
-            descriptionShow(entry.target.querySelector('.content-description-texts'))
+            entry.target.querySelectorAll('.content-header-texts').forEach(ele => {
+                ele.style.opacity = 1
+            })
+            headingShowing(entry.target.querySelectorAll('.content-header-texts'))
+            descriptionShow(entry.target.querySelectorAll('.content-description-texts'))
+            if(screen.width >= 640){
+                console.log(entry)
+                anime({
+                    targets: entry.target,
+                    opacity: 1,
+                    duration: 1500
+                })
+            }
         } else {
-            entry.target.querySelector('.content-header').style.opacity = 0
-            entry.target.querySelector('.content-description').style.opacity = 0
+            entry.target.querySelectorAll('.content-header-texts').forEach(ele => {
+                ele.style.opacity = 0
+            })
+            entry.target.querySelectorAll('.content-description-texts').forEach(ele => {
+                ele.style.opacity = 0
+            })
+            if(screen.width >= 640){
+                anime({
+                    targets: entry.target,
+                    opacity: 0,
+                    duration: 1500
+                })
+            }
         }
     })
 }, options)
@@ -108,27 +132,32 @@ document.querySelectorAll('.content-container').forEach((ele) => {
 
 //anime.js
 function headingShowing(text_wrapper){
-    text_wrapper.innerHTML = text_wrapper.textContent.replace(/\S/g, "<span class='content-header-text leading-[1em]'>$&</span>")
-    anime.timeline()
-        .add({
-            targets: text_wrapper.parentNode.parentNode.querySelectorAll('.content-header-text'),
-            translateY: ['1.1em', 0],
-            translateZ: 0,
-            duration: 750,
-            delay: (el, i) => 50 * i
-        })
+    text_wrapper.forEach((ele, i) => {
+        ele.innerHTML = ele.textContent.replace(/\S/g, "<span class='content-header-text inline-block leading-[1em] translate-y-[1.1em] opacity-0'>$&</span>")
+        setTimeout(() => {
+            anime.timeline()
+                .add({
+                    targets: ele.querySelectorAll('.content-header-text'),
+                    translateY: ['1.1em', 0],
+                    opacity: 1,
+                    translateZ: 0,
+                    duration: 750,
+                    delay: (el, x) => 50 * x
+                })
+        }, 350*(i+1))
+    })
 }
 
 function descriptionShow(text_wrapper){
-    text_wrapper.innerHTML = text_wrapper.textContent.replace(/\S/g, "<span class='content-description-text origin-[50%_100%] leading-[1em]'>$&</span>")
-    anime.timeline()
-        .add({
-            targets: text_wrapper.parentNode.parentNode.querySelectorAll('.content-description-text'),
-            scale: [0, 1],
-            duration: 500,
-            elasticity: 600,
-            delay: (el, i) => 10 * (i+1)
+    text_wrapper.forEach((ele, i) => {
+        anime({
+            targets: ele,
+            opacity: [0, 1],
+            translateY: [-20, 0],
+            duration: 1000,
+            delay: (500*(i+1))
         })
+    })
 }
 
 function openNavbarMenu(){
